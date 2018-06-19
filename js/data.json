@@ -1,0 +1,22 @@
+{
+	"name": "Faro",
+	"children": [
+		{
+		"name": "Faro_db",
+		"children": [
+			{"name": "Faro_mongodb"},
+			{"name": "Faro_mysql"},
+			{"name": "Faro_sql_server"},
+			{"name": "Faro_orientdb"}
+		]
+		},
+		{
+		"name": "Faro_aws",
+		"children": [
+			{"name": "Faro_ec2"},
+			{"name": "Faro_cloudformation"},
+			{"name": "Faro_s3"}
+		]
+		}
+	]
+}
