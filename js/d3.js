@@ -6,7 +6,8 @@ function start () {
 		var canvas = d3.select("body").append("svg")
 			.attr("width", 500)
 			.attr("height", 500);
-
+			.attr("transform", "translate(50,50)")
+;
 		var diagonal = d3.svg.diagonal()
 			.source({x: 10, y: 10})
 			.target({x: 300, y: 300})
@@ -15,6 +16,15 @@ function start () {
 		.attr("fill", "none")
 		.attr("stroke", "black")
 		.attr("d", diagonal)
+
+		var tree = d3.layout.tree()
+		.size([400,400])
+
+		d3.json("data.json", function (data)) {
+			var nodes = tree.nodes(data)
+			var links = tree.links {nodes};
+		}
+
 	//})
 
 
