@@ -19,7 +19,7 @@ class Tree extends Component {
       .attr("fill", "blue"); //color
       */
     return (
-        <p> General Grevious </p>
+        <p> General Kenobi! </p>
     )
   }
 }
