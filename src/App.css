@@ -26,3 +26,29 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+#pageTitle {
+  background-color: #368ac0;
+  height: 100px;
+  color: white;
+}
+
+#pageTitle > h1 {
+  padding-top: 50px;
+}
+/*Button CSS, probably should be split into its own file */
+#optionsDiv > * {
+  margin: 25px;
+}
+
+#inputDiv {
+  display: block;
+}
+#inputDiv > label {
+  margin: bottom;
+}
+
+#searchBtn {
+    background-color: #368ac0;
+}

@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
 import Tree from './Tree'
-import * as d3 from "d3";
+import Buttons from './Buttons'
+//import * as d3 from "d3";
 
 class App extends Component {
+
+  // TODO: not sure where this function should go, but it should take in the props from
+  // the input boxes and pass them to this function, where the function sends them
+  // as a request to the backend function (which will be a dummy function at this point)
+  getTree() {
+
+  }
+
   render() {
     return (
       <div className="App">
-        <h1> Hello There! </h1>
+        <div id="pageTitle">
+          <h1>Dependency Tree Browser </h1>
+        </div>
         <Tree/>
+        <Buttons/>
       </div>
     );
   }
