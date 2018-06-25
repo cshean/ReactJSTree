@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-//import ReactDOM from 'react-dom';
 import './App.css';
-//import * as d3 from "d3";
 
 class Buttons extends Component {
   render () {

@@ -37,6 +37,12 @@
 #pageTitle > h1 {
   padding-top: 50px;
 }
+/*Tree CSS*/
+
+#treestruct {
+  margin: 0 auto;
+}
+
 /*Button CSS, probably should be split into its own file */
 #optionsDiv > * {
   margin: 25px;
@@ -51,4 +57,5 @@
 
 #searchBtn {
     background-color: #368ac0;
+    margin-top: 25px;
 }
