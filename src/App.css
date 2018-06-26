@@ -38,9 +38,26 @@
   padding-top: 50px;
 }
 /*Tree CSS*/
+.node circle {
+  fill: white;
+  stroke: #368ac0;
+  stroke-width: 4px;
+}
+
+.node text { font: 12px sans-serif; }
+
+.node--internal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 3px;
+}
 
 #treestruct {
-  margin: 0 auto;
+  margin-top: 50px;
 }
 
 /*Button CSS, probably should be split into its own file */
