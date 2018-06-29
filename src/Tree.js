@@ -48,13 +48,13 @@ class Tree extends Component {
      //TODO: this is giving an error when trying to read in a file,
      //possibly has to do with async calls
      var nodes;
-     json("../data.json", function(error, data){
-       if (error) throw error;
+     //json("../data.json", function(error, data){
+    //   if (error) throw error;
       //gets the root node of the JSON data
-       nodes = hierarchy(data);
+       nodes = hierarchy(jsonData);
        //calling treestruct (equivalent of "tree") on the nodes creates a tree
        nodes = treestruct(nodes);
-    });
+    //});
 
      ///select the svg element created in the react app and append a g element
      //which is a container inside svg
@@ -85,7 +85,6 @@ class Tree extends Component {
          return "node" +
          (d.children ? " node--internal" : " node--leaf"); })
        .attr("transform", function(d) {
-         console.log(d.x + d.y)
          return "translate(" + d.x + "," + d.y + ")"; });
 
 
@@ -105,9 +104,9 @@ class Tree extends Component {
   //to insert multiple elements there must be a containing div or element
   render () {
     return (
-      <div class="container">
-        <div class="row">
-          <div class="col-8 offset-2">
+      <div className="container">
+        <div className="row">
+          <div className="col-8 offset-2">
             <svg id="treestruct" ref={node => this.node = node}
             width={500} height={500}>
             </svg>
