@@ -7,25 +7,19 @@ import {layout, json} from 'd3';
 //JS cannot have class variables
 //this needs to be just plain json, not a string
 const jsonData =
+{
+"Name" : "Name1",
+"Dependencies" : "Parent1",
+"Dependents": [
  {
-   "name": "Faro",
-   "children": [
-     {
-       "name": "Faro_db",
-       "children": [
-         { "name": "Faro_mongodb"},
-         { "name": "Faro_mysql"},
-         {"name": "Faro_sql_server"},
-         {"name": "Faro_orientdb"}
-       ]
-     },
-     {"name": "Faro_aws",
-     "children": [
-       {"name": "Faro_ec2"},
-       {"name": "Faro_cloudformation"},
-       {"name": "Faro_s3"}
-     ]}
-   ]};
+   "Name": "Subname1",
+   "Dependencies": "Name1"
+   },
+ {
+   "Name": "Subname2"
+   }
+]
+};
 
 class Tree extends Component {
 
