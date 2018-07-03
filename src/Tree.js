@@ -8,25 +8,45 @@ import {layout, json} from 'd3';
 //this needs to be just plain json, not a string
 const jsonData =
 {
-"Name" : "Name1",
-"Dependencies" : "Parent1",
-"Dependents": [
- {
-   "Name": "Subname1",
-   "Dependencies": "Name1"
-   },
- {
-   "Name": "Subname2"
-   }
-]
+  "name" : "Grandparent1",
+  "children" : [
+    {
+    "name" : "Name1",
+    "parent" : "Grandparent1",
+    "children": [
+       {
+       "name": "Subname1"
+       },
+       {
+       "name": "Subname2"
+       }
+    ]
+    },
+    {
+    "name" : "Name2",
+    "parent" : "Grandparent1",
+    "children": [
+       {
+       "name": "Subname3"
+       },
+       {
+       "name": "Subname4"
+       }
+    ]
+    }
+  ]
 };
 
+function children(d) {
+  return d.dependents;
+}
 class Tree extends Component {
 
   //called when code is generated
    componentDidMount() {
       this.createTree()
    }
+
 
    //creates a tree
    createTree() {
