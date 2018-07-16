@@ -9,11 +9,11 @@ import {layout, json} from 'd3';
 const jsonData =
 {
   "name" : "Grandparent1",
-  "children" : [
+  "dependents" : [
     {
     "name" : "Name1",
-    "parent" : "Grandparent1",
-    "children": [
+    "dependencies" : "Grandparent1, Grandparent2",
+    "dependents": [
        {
        "name": "Subname1"
        },
@@ -24,8 +24,8 @@ const jsonData =
     },
     {
     "name" : "Name2",
-    "parent" : "Grandparent1",
-    "children": [
+    "dependencies" : "Grandparent1",
+    "dependents": [
        {
        "name": "Subname3"
        },
@@ -37,16 +37,13 @@ const jsonData =
   ]
 };
 
-function children(d) {
-  return d.dependents;
-}
+
 class Tree extends Component {
 
   //called when code is generated
    componentDidMount() {
       this.createTree()
    }
-
 
    //creates a tree
    createTree() {
@@ -55,6 +52,7 @@ class Tree extends Component {
      //the json file should be in the source directory
      //var jsonFile = require('.\\data.json');
      const treestruct = tree().size([200,200]);
+
      const node = select(this.node);
      node.style('border', '1px solid black');
 
@@ -65,7 +63,9 @@ class Tree extends Component {
      //json("../data.json", function(error, data){
     //   if (error) throw error;
       //gets the root node of the JSON data
-       nodes = hierarchy(jsonData);
+      //to use a different name for children, specify this type of function as
+      //the second parameter when creating the hierarchy
+       nodes = hierarchy(jsonData, function(d){return d.dependents;});
        //calling treestruct (equivalent of "tree") on the nodes creates a tree
        nodes = treestruct(nodes);
     //});
