@@ -49,26 +49,22 @@ class Tree extends Component {
    createTree() {
      // set the dimensions and margins of the diagram
      var margin = {top: 150, right: 100, bottom: 100, left: 150};
-     //the json file should be in the source directory
-     //var jsonFile = require('.\\data.json');
+
+     //create a new tree
      const treestruct = tree().size([200,200]);
 
+     //select the nodes and give them a styling
      const node = select(this.node);
      node.style('border', '1px solid black');
 
-     //function that handles json data in a file, passes to anonymous function
-     //TODO: this is giving an error when trying to read in a file,
-     //possibly has to do with async calls
-     var nodes;
-     //json("../data.json", function(error, data){
-    //   if (error) throw error;
+
+      var nodes;
       //gets the root node of the JSON data
       //to use a different name for children, specify this type of function as
       //the second parameter when creating the hierarchy
        nodes = hierarchy(jsonData, function(d){return d.dependents;});
        //calling treestruct (equivalent of "tree") on the nodes creates a tree
        nodes = treestruct(nodes);
-    //});
 
      ///select the svg element created in the react app and append a g element
      //which is a container inside svg
@@ -90,7 +86,6 @@ class Tree extends Component {
 
        //selects all the nodes, gives them the data of the descendants of the
        //root in the hierarchy, then appends them as groups
-       //adds a class attribute TODO: what does the class attribute do?
        //adds a transform function the places the nodes at a specific point on the map
        var point = g.selectAll(".node")
        .data(nodes.descendants())
@@ -106,7 +101,8 @@ class Tree extends Component {
        point.append("circle")
        .attr("r", 10);
 
-
+       //TODO: not sure if these need named children or dependents, probably children
+       //appends the text of each of the nodes to the file
        point.append("text")
       .attr("dy", ".35em")
       .attr("y", function(d) { return d.children ? -20 : 20; })
